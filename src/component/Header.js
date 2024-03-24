@@ -10,7 +10,7 @@ function Header() {
 			</div>
             <nav className = "nav">
                 <Link to="/Homepage">Home</Link>
-                <Link to="/ProductList">Products</Link>
+                <Link to="/Productpage">Products</Link>
                 <Link to="/login">Login</Link>
             </nav>
 		</>

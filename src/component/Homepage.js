@@ -1,12 +1,15 @@
 import React from "react";
 import Header from "./Header";
+import Footer from "./Footer";
+import HomeMainSection from "./HomeMainSection";
 
 
 function Homepage(){
     return(
         <>
-            <Header />
-            <h2>Home page</h2>
+            <Header/>
+            <HomeMainSection/>
+            <Footer/>
         </>
     );
 }
