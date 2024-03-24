@@ -1,9 +1,14 @@
 import './App.css';
 import Homepage from "./component/Homepage"
+import { Routes, Route } from 'react-router-dom';
 
 function App() {
   return (
-    <Homepage />
+    <div className='container'>
+      <Routes>
+        <Route path ="/" element = {<Homepage/>}/>
+      </Routes>
+    </div>
   );
 }
 

@@ -1,30 +1,20 @@
 import React from "react";
-import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
-import Homepage from "./Homepage";
+import { Link } from "react-router-dom"
 
-function Header(){
-   return(
-    <header className="header">
-        <div className="logo">
-            <img src='/images/logo.png' alt="Website Logo" />
-        </div>
-        <div>
-            <h1>Company Name</h1>
-        </div>
-        
-        <Router>
-            <Switch>
-                <Route path="/">
-                    <Homepage />
-                </Route>
-            </Switch>
-        </Router>
-
-
-    </header>
-   );
-
+function Header() {
+	return (
+		<>
+			<div class="logoName">
+				<img src="./images/logo.png" alt="" />
+				<h1>Company Name</h1>
+			</div>
+            <nav className = "nav">
+                <Link to="/Homepage">Home</Link>
+                <Link to="/ProductList">Products</Link>
+                <Link to="/login">Login</Link>
+            </nav>
+		</>
+	);
 }
-
 
 export default Header;

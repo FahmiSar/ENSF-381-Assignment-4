@@ -36,3 +36,19 @@
     transform: rotate(360deg);
   }
 }
+
+
+img{
+  width: 100px;
+}
+
+.logoName{
+  display: flex;
+  justify-content: space-between;
+}
+
+.nav{
+  display: flex;
+  justify-content: space-between;
+  padding: 10px
+}
