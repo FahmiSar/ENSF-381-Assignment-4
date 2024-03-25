@@ -3,7 +3,7 @@ import React from 'react';
 const CartItem = ({ item, removeFromCart }) => {
 
   const handleRemove = (item) =>{
-    removeFromCart(item.id);
+    removeFromCart(item);
   }
 
   return (

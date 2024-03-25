@@ -1,6 +1,5 @@
-import React, {useState} from 'react';
+import React from 'react';
 import ProductItem from './ProductItem';
-import cartItem from './CartItem';
 import productData from "../data/products";
 
 function ProductList({addToCart}) {

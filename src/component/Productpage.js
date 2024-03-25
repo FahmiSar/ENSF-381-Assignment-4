@@ -25,7 +25,7 @@ function Productpage(){
             <table>
                 <tr>
                     <td><ProductList addToCart = {addToCart}/></td>
-                    <td style={{verticalAlign: "top"}}><Cart cart = {cartData}/></td>
+                    <td style={{verticalAlign: "top"}}><Cart cart = {cartData} setCartData={setCartData}/></td>
                 </tr>
             </table>
             <Footer/>
