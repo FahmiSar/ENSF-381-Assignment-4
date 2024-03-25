@@ -1,6 +1,12 @@
 import React from 'react';
 
-const CartItem = ({ item, removeFromCart }) => {
+const CartItem = ({ item  }) => {
+
+  const removeFromCart = () =>{
+    console.log("uh removed");
+  }
+  console.log("Cart Item rendered");
+
   return (
     <div className="cart-item">
       <img src={item.image} alt={item.name} />
