@@ -9,7 +9,14 @@ function Productpage(){
     const [cartData, setCartData] = useState([]);
        
     const addToCart = (product) => {
-        setCartData(prevCartData => [...prevCartData, product])
+        const existingItemIndex = cartData.findIndex(item => item.id === product.id);
+        if(existingItemIndex !== -1){
+            const updatedCartData = [...cartData];
+            updatedCartData[existingItemIndex].quantity += 1;
+            setCartData(updatedCartData);
+        } else {
+            setCartData(prevCartData => [...prevCartData, {...product, quantity: 1}])
+        }
     }
 
     return(

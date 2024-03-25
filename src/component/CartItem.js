@@ -1,11 +1,10 @@
 import React from 'react';
 
-const CartItem = ({ item  }) => {
+const CartItem = ({ item, removeFromCart }) => {
 
-  const removeFromCart = () =>{
-    console.log("uh removed");
+  const handleRemove = (item) =>{
+    removeFromCart(item.id);
   }
-  console.log("Cart Item rendered");
 
   return (
     <div className="cart-item">
@@ -14,7 +13,7 @@ const CartItem = ({ item  }) => {
         <p className="item-name">{item.name}</p>
         <p className="item-price">{item.price}</p>
         <p className="item-quantity">Quantity: {item.quantity}</p>
-        <button onClick={() => removeFromCart(item)}>Remove</button>
+        <button onClick={() => handleRemove(item)}>Remove</button>
       </div>
     </div>
   );
