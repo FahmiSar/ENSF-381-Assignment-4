@@ -3,7 +3,8 @@ import CartItem from './CartItem';
 
 const Cart = ({ cart, removeFromCart }) => {
   const calculateTotalCost = () => {
-    return cart.reduce((total, item) => total + (item.price * item.quantity), 0);
+    const totalCost = cart.reduce((total, item) => total + (item.price * item.quantity), 0)
+    return totalCost.toFixed(2);
   };
 
   return (
@@ -12,7 +13,7 @@ const Cart = ({ cart, removeFromCart }) => {
       {cart.map(item => (
         <CartItem key={item.id} item={item} removeFromCart={removeFromCart} />
       ))}
-      <h3>Total Cost: {calculateTotalCost()}</h3>
+      <h3>Total Cost: ${calculateTotalCost()}</h3>
     </div>
   );
 };
