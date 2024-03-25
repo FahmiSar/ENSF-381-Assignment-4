@@ -1,6 +1,11 @@
 import React from 'react';
 
 const CartItem = ({ item, removeFromCart }) => {
+
+  const handleRemove = (item) =>{
+    removeFromCart(item);
+  }
+
   return (
     <div className="cart-item">
       <img src={item.image} alt={item.name} />
@@ -8,7 +13,7 @@ const CartItem = ({ item, removeFromCart }) => {
         <p className="item-name">{item.name}</p>
         <p className="item-price">{item.price}</p>
         <p className="item-quantity">Quantity: {item.quantity}</p>
-        <button onClick={() => removeFromCart(item)}>Remove</button>
+        <button onClick={() => handleRemove(item)}>Remove</button>
       </div>
     </div>
   );
