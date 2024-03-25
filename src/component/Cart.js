@@ -26,7 +26,7 @@ const Cart = ({ cart, setCartData}) => {
       {cart.map(item => (
         <CartItem key={item.id} item={item} removeFromCart = {removeFromCart}/>
       ))}
-      <h3>Total Cost: ${calculateTotalCost()}</h3>
+      <h3>Total Cost (in cart): ${calculateTotalCost()}</h3>
     </div>
   );
 };
