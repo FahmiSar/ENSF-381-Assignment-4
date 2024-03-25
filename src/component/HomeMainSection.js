@@ -1,6 +1,6 @@
-import React, {useState, useEffect} from "react";
-import {Link} from "react-router-dom";
-import reviewData from "../data/reviews"
+import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import reviewData from "../data/reviews";
 
 function HomeMainSection(){
     const [firstReview, setFirstReview] = useState(null);
@@ -45,11 +45,11 @@ function HomeMainSection(){
             )}
 
             {secondReview && (
-                <div>
-                    <p>{secondReview.customerName}</p>
-                    <p>{secondReview.reviewcontent}</p>
-                    <p>Rating: {renderStars(secondReview.stars)}</p>
-                </div>
+        <div>
+          <p>{secondReview.customerName}</p>
+          <p>{secondReview.reviewContent}</p> {/* Corrected typo here -safaa*/}
+          <p>Rating: {renderStars(secondReview.stars)}</p>
+        </div>
             )}
 
         
