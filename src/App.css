@@ -52,3 +52,18 @@ img{
   justify-content: space-between;
   padding: 10px
 }
+
+
+/*Products css*/
+.product-page{
+  display: flex;
+  flex-direction: column;
+}
+
+.product-item{
+  margin-bottom: 10px;
+}
+
+.cart-item{
+  margin-bottom: 10px;
+}
