@@ -1,6 +1,6 @@
-import React, {useState, useEffect} from "react";
-import {Link} from "react-router-dom";
-import reviewData from "../data/reviews"
+import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import reviewData from "../data/reviews";
 
 function HomeMainSection(){
     const [firstReview, setFirstReview] = useState(null);
