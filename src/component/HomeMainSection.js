@@ -45,14 +45,12 @@ function HomeMainSection(){
             )}
 
             {secondReview && (
-        <div>
-          <p>{secondReview.customerName}</p>
-          <p>{secondReview.reviewContent}</p> {/* Corrected typo here -safaa*/}
-          <p>Rating: {renderStars(secondReview.stars)}</p>
-        </div>
+                <div>
+                    <p>{secondReview.customerName}</p>
+                    <p>{secondReview.reviewContent}</p>
+                    <p>Rating: {renderStars(secondReview.stars)}</p>
+                </div>
             )}
-
-        
         </>
     );
 }

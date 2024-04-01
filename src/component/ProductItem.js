@@ -17,14 +17,13 @@ const ProductItem = ({ product, addToCart}) => {
       <div className="product-details">
         <p className="product-name">{product.name}</p>
         <p className="product-price">${product.price}</p>
-        
+        <button onClick = {handleClick}>Add to Cart</button>
         {showDetails && (
           <div className="product-description">
             <p>{product.description}</p>
           </div>
         )}
       </div>
-      <button onClick = {handleClick}>Add to Cart</button>
     </div>
   );
 };
