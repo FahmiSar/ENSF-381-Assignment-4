@@ -47,12 +47,10 @@ function HomeMainSection(){
             {secondReview && (
                 <div>
                     <p>{secondReview.customerName}</p>
-                    <p>{secondReview.reviewcontent}</p>
+                    <p>{secondReview.reviewContent}</p>
                     <p>Rating: {renderStars(secondReview.stars)}</p>
                 </div>
             )}
-
-        
         </>
     );
 }
