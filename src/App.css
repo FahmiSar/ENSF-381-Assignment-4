@@ -67,3 +67,10 @@ img{
 .cart-item{
   margin-bottom: 10px;
 }
+
+
+/*Login and signup*/
+.error-message{
+  color: red;
+  font-weight: bold;
+}
