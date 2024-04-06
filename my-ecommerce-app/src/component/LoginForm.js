@@ -5,6 +5,7 @@ function LoginForm(){
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [showLoginForm, setShowLoginForm] = useState(true);
+    const [errorMessage, setErrorMessage] = useState("");
 
     const handleUsernameChange = (event) => {
         setUsername(event.target.value);
@@ -18,12 +19,42 @@ function LoginForm(){
         setShowLoginForm(!showLoginForm);
     }
 
+    const handleLogin = async (event) => {
+        event.preventDefault();
+        const userData = {
+            username: username,
+            password: password,
+        };
+        
+        try{
+            const response = await fetch("http://127.0.0.1:5000/login",{
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                }, 
+                body: JSON.stringify(userData),
+            });
+            const data = await response.json();
+
+            if(response.ok){
+                console.log("login success");
+            } else{
+                setErrorMessage(data.error || "Login failed");
+            }
+        } catch(error){
+            setErrorMessage("Login failed. Please try again");
+            console.error(error);
+        }
+
+    }
+
     
     if(showLoginForm){
         return(
             <>
                 <h2>Login</h2>
-                <form>
+                {errorMessage && <p className="error-message">{errorMessage}</p>}
+                <form onSubmit = {handleLogin}>
                     <div>
                         <label htmlFor="username">Username:</label>
                         <input
@@ -38,7 +69,7 @@ function LoginForm(){
                     <div>
                         <label htmlFor="password">Password:</label>
                         <input
-                            type = "text"
+                            type = "password"
                             id = "password"
                             value = {password}
                             placeholder="Enter your password"

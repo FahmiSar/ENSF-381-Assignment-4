@@ -29,18 +29,47 @@ function SignupForm(){
         setShowSignupForm(false);
     }
     
-    const handleSignup = (event) =>{
+    const handleSignup = async (event) =>{
         event.preventDefault();
+
         if(password !== confirmPassword){
             setErrorMessage("Passwords do not match");
+            return;
         }
         else if(!email.includes("@")){
             setErrorMessage("Invalid email");
+            return;
         }
-        else{
-            setErrorMessage("User created!");
+
+        const userData = {
+            username: username,
+            password: password,
+            email: email,
+        };
+
+        try{
+            const response = await fetch('http://127.0.0.1:5000/signup',{
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(userData),
+            });
+            const data = await response.json();
+
+            if(response.ok){
+                setErrorMessage("User created!");
+            } else{
+                setErrorMessage(data.error || "Signup failed");
+            }
+        } catch (error){
+            setErrorMessage("Signup failed. Please try again.");
+            console.error(error);
         }
+
     }
+
+    
 
     if(showSignupForm){
         return(
@@ -62,7 +91,7 @@ function SignupForm(){
                     <div>
                         <label htmlFor="password">Password:</label>
                         <input 
-                            type = "text"
+                            type = "password"
                             id = "password"
                             value = {password}
                             placeholder="Enter your password"
@@ -73,7 +102,7 @@ function SignupForm(){
                     <div>
                         <label htmlFor="confirm-password">Confirm Password:</label>
                         <input
-                            type = "text"
+                            type = "password"
                             id = "confirm-password"
                             value = {confirmPassword}
                             placeholder="Re-enter your password"
