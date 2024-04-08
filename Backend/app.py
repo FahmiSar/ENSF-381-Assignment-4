@@ -149,19 +149,8 @@ def login():
     return jsonify({"message": "Login successful"}), 200
 
 @app.route ('/products', methods =['GET'])
-@app.route ('/products/<int:product_id>', methods =['GET'])
-def get_products(product_id = None):
-    if product_id is None:
-        return jsonify({"products": products})
-    else:
-        for p in products:
-            if p["id"] == product_id:
-                product = p
-        if product is None:
-            return "", 404
-        else:
-            return jsonify({product})
-
+def get_products():
+    return jsonify({"products": products})
 
 
 if __name__ == "__main__":
