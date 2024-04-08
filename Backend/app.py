@@ -6,6 +6,82 @@ import os
 app = Flask(__name__)
 CORS(app)
 
+# Products list
+products = [
+    
+    {
+    "id": 1,
+    "name": "Product 1",
+    "description": "Description for Product 1",
+    "price": 10.99,
+    "image": 'images/product1.png'
+    },
+    {
+    "id": 2,
+    "name": "Product 2",
+    "description": "Description for Product 2",
+    "price": 20.99,
+    "image": 'images/product2.jpg'
+    },
+    {
+    "id": 3,
+    "name": "Product 3",
+    "description": "Description for Product 3",
+    "price": 10.99,
+    "image": 'images/product3.jpg'
+    },
+    {
+    "id": 4,
+    "name": "Product 4",
+    "description": "Description for Product 4",
+    "price": 10.99,
+    "image": 'images/product4.jpg'
+    },
+    {
+    "id": 5,
+    "name": "Product 5",
+    "description": "Description for Product 5",
+    "price": 10.99,
+    "image": 'images/product5.jpg'
+    },
+    {
+    "id": 6,
+    "name": "Product 6",
+    "description": "Description for Product 6",
+    "price": 10.99,
+    "image": 'images/product6.jpg'
+    },
+    {
+    "id": 7,
+    "name": "Product 7",
+    "description": "Description for Product 7",
+    "price": 10.99,
+    "image": 'images/product7.jpg'
+    },
+    {
+    "id": 8,
+    "name": "Product 8",
+    "description": "Description for Product 8",
+    "price": 10.99,
+    "image": 'images/product8.jpg'
+    },
+    {
+    "id": 9,
+    "name": "Product 9",
+    "description": "Description for Product 9",
+    "price": 10.99,
+    "image": 'images/product9.jpg'
+    },
+    {
+    "id": 10,
+    "name": "Product 10",
+    "description": "Description for Product 10",
+    "price": 10.99,
+    "image": 'images/product10.jpg'
+    }
+]
+
+
 # Helper Functions
 def load_users():
     global users
@@ -20,7 +96,7 @@ def save_users():
         json.dump(users, file)
 
 
-# load uses.json file 
+# load uses.json file before signup and login so we have the user's list ready
 load_users()
 
 @app.route("/signup", methods=["POST"])
@@ -71,6 +147,21 @@ def login():
         return jsonify({"error": "Incorrect password"}), 401
     
     return jsonify({"message": "Login successful"}), 200
+
+@app.route ('/products', methods =['GET'])
+@app.route ('/products/<int:product_id>', methods =['GET'])
+def get_products(product_id = None):
+    if product_id is None:
+        return jsonify({"products": products})
+    else:
+        for p in products:
+            if p["id"] == product_id:
+                product = p
+        if product is None:
+            return "", 404
+        else:
+            return jsonify({product})
+
 
 
 if __name__ == "__main__":

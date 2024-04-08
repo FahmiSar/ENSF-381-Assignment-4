@@ -1,7 +1,10 @@
-import React from "react";
+import React, {useContext} from "react";
 import { Link } from "react-router-dom"
+import { Context } from "../App";
 
 function Header() {
+	const [loginStatus] = useContext(Context)
+
 	return (
 		<>
 			<div class="logoName">
@@ -10,8 +13,9 @@ function Header() {
 			</div>
             <nav className = "nav">
                 <Link to="/Homepage">Home</Link>
-                <Link to="/Productpage">Products</Link>
+                <Link to={loginStatus ? "/Productpage" : "/login"}>Products</Link>
                 <Link to="/login">Login</Link>
+				<div className = {loginStatus? "logged-in" : "not-logged-in"}>{loginStatus? "Logged in" : "Not Logged In"}</div>
             </nav>
 		</>
 	);

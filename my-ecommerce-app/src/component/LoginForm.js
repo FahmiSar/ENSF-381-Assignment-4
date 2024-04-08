@@ -1,11 +1,13 @@
-import React, {useState} from "react";
+import React, {useState, useContext} from "react";
 import SignupForm from "./SignupForm";
+import { Context } from "../App";
 
 function LoginForm(){
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [showLoginForm, setShowLoginForm] = useState(true);
     const [errorMessage, setErrorMessage] = useState("");
+    const [loginStatus, setLoginStatus] = useContext(Context);
 
     const handleUsernameChange = (event) => {
         setUsername(event.target.value);
@@ -38,6 +40,7 @@ function LoginForm(){
 
             if(response.ok){
                 console.log("login success");
+                setLoginStatus(true)
             } else{
                 setErrorMessage(data.error || "Login failed");
             }

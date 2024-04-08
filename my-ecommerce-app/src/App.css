@@ -74,3 +74,13 @@ img{
   color: red;
   font-weight: bold;
 }
+
+.logged-in{
+  color: green;
+  font-weight: bold;
+}
+
+.not-logged-in{
+  color: red;
+  font-weight: bold;
+}
